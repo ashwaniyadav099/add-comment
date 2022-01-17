@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Blog</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <h1>Add Your Comment</h1>
+    <div class="content">
+      <div class="form">
+        <form onsubmit="myfun(event)">
+           <h2>Hey Please drop your comment</h2>
+           <input type="text" class="input" id="name" placeholder="Enter Your Name" pattern="[a-z]{1,15}" required >
+           <input type="email" class="input"  id="email_id" placeholder="Enter your Email Id" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" required>
+           <textarea name="comment" id="text" cols="30" rows="10"></textarea> 
+           <button type="submit">Summit</button>
+        
+        </form>
+      </div>
+      <div id="comment" class="comments">
+        
+      </div>
+    </div>
+  </div>
+
+
+  <script>
+
+    var all_comments = [];
+    let commentes= document.getElementById("comment");
+    let mydata= "";
+
+    function myfun(event){
+      event.preventDefault()
+
+      var name = document.getElementById("name").value;
+      var email = document.getElementById("email_id").value;
+      var comment = document.getElementById("text").value;
+         
+      mydata+=`<div class="comt"><div class="info">
+             <div class="img"></div><div class="id">
+              <h2>${name}</h2>
+              <h4>${email}</h4>
+             </div></div><p>${comment}</p></div>`;
+          
+             commentes.innerHTML=mydata;     
+
+       document.getElementById("name").value="";
+       document.getElementById("email_id").value="";
+       document.getElementById("text").value="";     
+        }
+     
+    
+  </script>
+</body>
+</html>
